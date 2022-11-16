@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { StyleSheet, View, I18nManager } from 'react-native'
-import { ViewPropTypes } from 'deprecated-react-native-prop-types'
+import { ViewPropTypes } from 'react-native/Libraries/Components/View/ViewPropTypes'
 
 // compatability for react-native versions < 0.44
 const ViewPropTypesStyle = ViewPropTypes
   ? ViewPropTypes.style
   : View.propTypes.style
-let direction = I18nManager.isRTL? 'right' : 'left';
-let opDirection = I18nManager.isRTL? 'Left' : 'Right';
+const direction = I18nManager.isRTL ? 'right' : 'left'
+const opDirection = I18nManager.isRTL ? 'Left' : 'Right'
 const styles = StyleSheet.create({
   outerCircle: {
     justifyContent: 'center',
@@ -47,7 +47,7 @@ export default class PercentageCircle extends Component {
     percent: PropTypes.number.isRequired, // eslint-disable-line react/no-unused-prop-types
     children: PropTypes.node,
     containerStyle: ViewPropTypesStyle,
-    outerCircleStyle: ViewPropTypesStyle
+    outerCircleStyle: ViewPropTypesStyle,
   };
 
   static defaultProps = {
@@ -60,7 +60,7 @@ export default class PercentageCircle extends Component {
   };
 
   computeDerivedState() {
-    const { props } = this;
+    const { props } = this
     const percent = Math.max(Math.min(100, props.percent), 0)
     const needHalfCircle2 = percent > 50
     let halfCircle1Degree
@@ -89,7 +89,7 @@ export default class PercentageCircle extends Component {
 
   renderHalfCircle(rotateDegrees, halfCircleStyles) {
     const { radius, color } = this.props
-    const key = I18nManager.isRTL ? 'right' : 'left';
+    const key = I18nManager.isRTL ? 'right' : 'left'
     return (
       <View
         style={[
