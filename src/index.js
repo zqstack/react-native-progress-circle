@@ -3,10 +3,7 @@ import PropTypes from 'prop-types'
 import { StyleSheet, View, I18nManager } from 'react-native'
 import { ViewPropTypes } from 'deprecated-react-native-prop-types'
 
-// compatability for react-native versions < 0.44
-const ViewPropTypesStyle = ViewPropTypes
-  ? ViewPropTypes.style
-  : View.propTypes.style
+const ViewPropTypesStyle = ViewPropTypes.style
 const direction = I18nManager.isRTL ? 'right' : 'left'
 const opDirection = I18nManager.isRTL ? 'Left' : 'Right'
 const styles = StyleSheet.create({
