@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { StyleSheet, View, I18nManager } from 'react-native'
-import { ViewPropTypes } from 'react-native/Libraries/Components/View/ViewPropTypes'
+import { ViewPropTypes } from 'deprecated-react-native-prop-types'
 
 // compatability for react-native versions < 0.44
 const ViewPropTypesStyle = ViewPropTypes
@@ -57,6 +57,7 @@ export default class PercentageCircle extends Component {
     borderWidth: 2,
     children: null,
     containerStyle: null,
+    outerCircleStyle: null,
   };
 
   computeDerivedState() {
@@ -89,7 +90,7 @@ export default class PercentageCircle extends Component {
 
   renderHalfCircle(rotateDegrees, halfCircleStyles) {
     const { radius, color } = this.props
-    const key = I18nManager.isRTL ? 'right' : 'left'
+    // const key = I18nManager.isRTL ? 'right' : 'left'
     return (
       <View
         style={[
